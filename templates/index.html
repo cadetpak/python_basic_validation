@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Registration Form Assignment</title>
+		<link rel="stylesheet" type="text/css" href = "{{url_for('static', filename="mystyle.css")}}">
+	</head>
+	<body>
+		<h1>Register a New User!</h1>
+
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				<ul class = flashes> 
+				{% for category, message in messages %}
+					<li class="{{ category }}">{{ message }}</li> 
+				{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+
+
+		<form action='/process' method='POST'> 
+			First Name: <input type='text' name='first'> <br>
+			Last Name: <input type='text' name='last'> <br>
+			Email: <input type='text' name=
+			'email'> <br>
+			Password: <input type='password' name='password'> <br>
+			Password Confirmation <input type='password' name='password_confirmation'><br>
+
+			<input type='submit' value='Submit'> 
+		</form>
+	</body>
+</html>
